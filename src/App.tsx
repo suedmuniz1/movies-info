@@ -1,7 +1,12 @@
 import { Navigate, Route, Routes } from "react-router";
 import { Header } from "./components/Header";
 import { UpcomingMovies } from "./components/UpcomingMovies";
-import { SeriesOnTheAir } from "./components/SeriesOnTheAir";
+import { PopularMovies } from "./components/PopularMovies";
+import { TopRatedMovies } from "./components/TopRatedMovies";
+import { NowPlayingMovies } from "./components/NowPlayingMovies";
+import { PopularSeries } from "./components/PopularSeries";
+import { TopRatedSeries } from "./components/TopRatedSeries";
+import { OnTheAirSeries } from "./components/OnTheAirSeries";
 
 function App() {
   return (
@@ -18,17 +23,17 @@ function App() {
         style={{ minHeight: "80vh" }}
       >
         <Routes>
-          <Route path="/" element={<UpcomingMovies />} />
-          <Route path="/series" element={<SeriesOnTheAir />} />
-        </Routes>
-        {/* <Routes>
           <Route path="/">
-            <Route index element={<Navigate to="/movies/upcoming" replace />} />
-            <Route path="/movies">
-              <Route path="/movies/upcoming" element={<UpcomingMovies />} />
-            </Route>
+            <Route index element={<Navigate to="/movies/popular" replace />} />
+            <Route path="/movies/popular" element={<PopularMovies />} />
+            <Route path="/movies/upcoming" element={<UpcomingMovies />} />
+            <Route path="/movies/top-rated" element={<TopRatedMovies />} />
+            <Route path="/movies/now-playing" element={<NowPlayingMovies />} />
+            <Route path="/series/popular" element={<PopularSeries />} />
+            <Route path="/series/top-rated" element={<TopRatedSeries />} />
+            <Route path="/series/on-the-air" element={<OnTheAirSeries />} />
           </Route>
-        </Routes> */}
+        </Routes>
       </div>
     </div>
   );
