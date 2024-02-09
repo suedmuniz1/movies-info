@@ -22,7 +22,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   };
 
   return (
-    <div className="w-full border-2 border-cyan-600 image-container">
+    <div className="w-full image-container">
       <img
         src={`https://image.tmdb.org/t/p/w300${posterPath}`}
         alt="movie-poster"

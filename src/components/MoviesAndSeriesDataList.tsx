@@ -6,14 +6,14 @@ import { Pagination } from "./Pagination";
 import { Loading } from "react-loading-dot";
 
 type MoviesDataListProps = {
-  title: string;
+  // title: string;
   customTitleKey?: string;
   dataEndpoint: string;
   endpointParams?: Record<string, any>;
 };
 
 export const MoviesAndSeriesDataList: React.FC<MoviesDataListProps> = ({
-  title,
+  // title,
   customTitleKey,
   dataEndpoint,
   endpointParams,
@@ -54,8 +54,10 @@ export const MoviesAndSeriesDataList: React.FC<MoviesDataListProps> = ({
   }, [page]);
 
   return (
-    <div className="h-full w-full">
-      <span className="text-3xl font-bold w-full">{title}</span>
+    <div className="h-full w-full my-20">
+      {/* <div className="w-full flex justify-center">
+        <span className="text-3xl font-bold">{title}</span>
+      </div> */}
       {isLoading ? (
         <div className="w-full">
           <Loading background="rgba(0, 0, 0, 0.8)" />
