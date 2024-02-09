@@ -1,3 +1,5 @@
+import { Navbar } from "./NavBar";
+
 export const Header = () => {
   return (
     <div
@@ -7,11 +9,7 @@ export const Header = () => {
       <button id="logo" className="text-3xl font-bold">
         Movies List
       </button>
-      <div id="nav-items" className="text-lg">
-        <button className="ml-10">Movies</button>
-        <button className="ml-10">Series</button>
-        <button className="ml-20">Project</button>
-      </div>
+      <Navbar />
     </div>
   );
 };
