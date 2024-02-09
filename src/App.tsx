@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { API_TOKEN } from "./constants/env";
+import { Header } from "./components/Header";
+
+import "./App.css";
+import { MovieCard } from "./components/MovieCard";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [movies, setMovies] = useState([]);
+
+  const getMovies = async () => {
+    const moviesList = await axios
+      .get("https://api.themoviedb.org/3/movie/upcoming", {
+        headers: {
+          authorization: `Bearer ${API_TOKEN}`,
+          accept: "application/json",
+        },
+        params: {
+          page: 1,
+          language: "en-US",
+        },
+      })
+      .then((response) => response.data.results);
+
+    setMovies(moviesList);
+    console.log(moviesList);
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div id="root" className="bg-cyan-200 h-full font-sans">
+      <div className="bg-cyan-950 text-white">
+        <Header />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="w-3/4 mx-auto bg-cyan-50 p-10">
+        <span className="text-3xl font-bold">Popular Movies</span>
+        <div id="movies" className="flex flex-wrap justify-between">
+          {movies.map((movie: any) => {
+            return (
+              <MovieCard
+                title={movie.title}
+                overview={movie.overview}
+                posterPath={movie.poster_path}
+              />
+            );
+          })}
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
