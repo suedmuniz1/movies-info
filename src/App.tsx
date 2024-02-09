@@ -37,7 +37,7 @@ function App() {
         <Header />
       </div>
       <div className="w-3/4 mx-auto bg-cyan-50 p-10">
-        <span className="text-3xl font-bold">Popular Movies</span>
+        <span className="text-3xl font-bold">Upcoming</span>
         <div id="movies" className="flex flex-wrap justify-between">
           {movies.map((movie: any) => {
             return (
