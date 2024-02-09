@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "./MovieCard.css";
 
 type MovieCardProps = {
   title: string;
@@ -21,11 +22,11 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   };
 
   return (
-    <div className="my-5 w-max h-max bg-cyan-700 p-1 image-container">
+    <div className="w-full border-2 border-cyan-600 image-container">
       <img
         src={`https://image.tmdb.org/t/p/w300${posterPath}`}
         alt="movie-poster"
-        // className="rounded-3xl"
+        className="w-full h-full"
       />
       <div className="text-white p-5 overlay">
         <span className="text-3xl font-bold mb-10">{title}</span>
