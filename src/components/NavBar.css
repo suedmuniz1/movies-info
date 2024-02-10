@@ -1,4 +1,4 @@
-.active {
+#nav-items.active {
   font-weight: bold;
-  color: rgb(128, 221, 255);
+  color: rgb(8, 145, 178) !important;
 }

@@ -11,22 +11,22 @@ export const Navbar = () => {
       id="nav-items"
       className="text-lg h-full flex items-center justify-center"
     >
-      <div className="ml-10 h-3/4 flex items-center border-b-2 border-cyan-950 nav-button">
+      <div className="ml-10 h-3/4 flex items-center nav-button">
         <Link
           to="/movies/popular"
           className={`${
             pathname.includes("movies") ? "active" : ""
-          } hover:text-cyan-300 transition ease delay-150 hover:-translate-y-1 hover:scale-110 duration-300`}
+          }  transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
         >
           Movies
         </Link>
       </div>
-      <div className="ml-10 h-3/4 flex items-center border-b-2 border-cyan-950 nav-button">
+      <div className="ml-10 h-3/4 flex items-center border-cyan-950 nav-button">
         <Link
           to="/series/popular"
           className={`${
             pathname.includes("series") ? "active" : ""
-          } hover:text-cyan-300 transition ease delay-150 hover:-translate-y-1 hover:scale-110 duration-300`}
+          } transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
         >
           Series
         </Link>
