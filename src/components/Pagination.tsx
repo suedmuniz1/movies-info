@@ -1,4 +1,4 @@
-import { MAX_API_ACCEPTED_PAGE } from "../constants/Pagination";
+import { MAX_API_ACCEPTED_PAGE } from "../constants/pagination";
 
 type PaginationProps = {
   page: number;
@@ -22,8 +22,8 @@ export const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <nav className="flex justify-center mt-10">
-      <div className="flex justify-evenly w-3/6 py-5 border-t-2 border-cyan-600 border-opacity-20">
+    <nav className="flex justify-center items-center mt-20">
+      <div className="flex justify-evenly w-3/6">
         <button
           onClick={() => {
             setPage(1);
