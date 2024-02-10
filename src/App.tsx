@@ -1,12 +1,12 @@
 import { Navigate, Route, Routes } from "react-router";
 import { Header } from "./components/Header";
-import { UpcomingMovies } from "./components/UpcomingMovies";
-import { PopularMovies } from "./components/PopularMovies";
-import { TopRatedMovies } from "./components/TopRatedMovies";
-import { NowPlayingMovies } from "./components/NowPlayingMovies";
-import { PopularSeries } from "./components/PopularSeries";
-import { TopRatedSeries } from "./components/TopRatedSeries";
-import { OnTheAirSeries } from "./components/OnTheAirSeries";
+import { UpcomingMovies } from "./pages/UpcomingMovies";
+import { PopularMovies } from "./pages/PopularMovies";
+import { TopRatedMovies } from "./pages/TopRatedMovies";
+import { NowPlayingMovies } from "./pages/NowPlayingMovies";
+import { PopularSeries } from "./pages/PopularSeries";
+import { TopRatedSeries } from "./pages/TopRatedSeries";
+import { OnTheAirSeries } from "./pages/OnTheAirSeries";
 
 function App() {
   return (
