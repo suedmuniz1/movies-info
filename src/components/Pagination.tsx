@@ -1,3 +1,5 @@
+import { MAX_API_ACCEPTED_PAGE } from "../constants/Pagination";
+
 type PaginationProps = {
   page: number;
   setPage: (page: number) => void;
@@ -11,6 +13,14 @@ export const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   totalResults,
 }) => {
+  const validatePage = () => {
+    if (totalPages > MAX_API_ACCEPTED_PAGE) {
+      return page < MAX_API_ACCEPTED_PAGE;
+    }
+
+    return page < totalPages;
+  };
+
   return (
     <nav className="flex justify-center mt-10">
       <div className="flex justify-evenly w-3/6 py-5 border-t-2 border-cyan-600 border-opacity-20">
@@ -55,7 +65,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               {page}
             </button>
           </li>
-          {page < 500 && totalResults > 0 && (
+          {validatePage() && totalResults > 0 && (
             <li>
               <button
                 onClick={() => {
@@ -74,7 +84,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                 setPage(page + 1);
                 window.scrollTo(0, 0);
               }}
-              disabled={page === 500 || totalResults === 0}
+              disabled={page === MAX_API_ACCEPTED_PAGE || totalResults === 0}
               className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               Next
@@ -84,10 +94,10 @@ export const Pagination: React.FC<PaginationProps> = ({
         <button
           // Setting value as 500 because the api accepts up to 500 pages
           onClick={() => {
-            setPage(500);
+            setPage(totalPages <= MAX_API_ACCEPTED_PAGE ? totalPages : 500);
             window.scrollTo(0, 0);
           }}
-          disabled={page === 500 || totalResults === 0}
+          disabled={page === MAX_API_ACCEPTED_PAGE || totalResults === 0}
           className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-lg text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
         >
           Last page
