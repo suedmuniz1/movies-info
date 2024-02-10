@@ -1,12 +1,13 @@
 import { Navigate, Route, Routes } from "react-router";
+import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
-import { UpcomingMovies } from "./pages/UpcomingMovies";
-import { PopularMovies } from "./pages/PopularMovies";
-import { TopRatedMovies } from "./pages/TopRatedMovies";
 import { NowPlayingMovies } from "./pages/NowPlayingMovies";
-import { PopularSeries } from "./pages/PopularSeries";
-import { TopRatedSeries } from "./pages/TopRatedSeries";
 import { OnTheAirSeries } from "./pages/OnTheAirSeries";
+import { PopularMovies } from "./pages/PopularMovies";
+import { PopularSeries } from "./pages/PopularSeries";
+import { TopRatedMovies } from "./pages/TopRatedMovies";
+import { TopRatedSeries } from "./pages/TopRatedSeries";
+import { UpcomingMovies } from "./pages/UpcomingMovies";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       </div>
       <div
         className="w-3/4 mx-auto bg-white p-10"
-        style={{ minHeight: "80vh" }}
+        style={{ minHeight: "90vh" }}
       >
         <Routes>
           <Route path="/">
@@ -35,6 +36,7 @@ function App() {
           </Route>
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }
