@@ -4,6 +4,7 @@ import { API_TOKEN } from "../constants/env";
 import { MovieCard } from "./MovieCard";
 import { Pagination } from "./Pagination";
 import { Loading } from "react-loading-dot";
+import { getData } from "../services/api";
 
 type MoviesDataListProps = {
   // title: string;
@@ -16,7 +17,7 @@ export const MoviesAndSeriesDataList: React.FC<MoviesDataListProps> = ({
   // title,
   customTitleKey,
   dataEndpoint,
-  endpointParams,
+  endpointParams = {},
 }) => {
   const [movies, setMovies] = useState<Record<string, any>[]>([]);
   const [page, setPage] = useState<number>(1);
@@ -25,22 +26,11 @@ export const MoviesAndSeriesDataList: React.FC<MoviesDataListProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const getMovies = async () => {
-    const response = await axios
-      .get(dataEndpoint, {
-        headers: {
-          authorization: `Bearer ${API_TOKEN}`,
-          accept: "application/json",
-        },
-        params: {
-          page: page,
-          language: "en-US",
-          ...endpointParams,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        return response.data;
-      });
+    const response = await getData({
+      dataEndpoint,
+      endpointParams,
+      page,
+    });
 
     setMovies(response.results);
     setPage(response.page);
