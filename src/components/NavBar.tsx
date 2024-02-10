@@ -1,7 +1,7 @@
+import { BiGitBranch } from "react-icons/bi";
+import { FaStar } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
-import { BsGithub } from "react-icons/bs";
-import { BiGitBranch } from "react-icons/bi";
 
 export const Navbar = () => {
   const { pathname } = useLocation();
@@ -38,7 +38,7 @@ export const Navbar = () => {
           rel="noopener noreferrer"
           className="bg-cyan-800 rounded-full flex justify-evenly items-center w-20 h-10 hover:text-cyan-300 transition ease delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
         >
-          <BsGithub />
+          <FaStar />
           <BiGitBranch />
         </a>
       </button>
