@@ -22,7 +22,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   };
 
   return (
-    <div className="w-full image-container">
+    <div className="w-full transition ease delay-150 duration-300 hover:-translate-y-3 image-container">
       <img
         src={`https://image.tmdb.org/t/p/w300${posterPath}`}
         alt="movie-poster"
