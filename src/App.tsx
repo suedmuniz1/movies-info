@@ -13,14 +13,16 @@ function App() {
   return (
     <div
       id="root"
-      className="bg-cyan-200 font-sans"
-      style={{ minHeight: "100vh" }}
+      className="font-sans bg-gradient-to-b from-black to-sky-900"
+      style={{
+        minHeight: "100vh",
+      }}
     >
-      <div className="bg-cyan-950 text-white">
+      <div className="text-white">
         <Header />
       </div>
       <div
-        className="w-3/4 mx-auto bg-white p-10"
+        className="w-3/4 mx-auto p-10 my-10 rounded-lg"
         style={{ minHeight: "90vh" }}
       >
         <Routes>
