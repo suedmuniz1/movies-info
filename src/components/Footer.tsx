@@ -3,7 +3,7 @@ import { FooterMediaIconButton } from "./FooterMediaIconButton";
 
 export const Footer = () => {
   return (
-    <div className="bg-cyan-950 text-white">
+    <div className="text-white">
       <div className="flex justify-center align-center p-5">
         <span>
           Designed and developed by:{" "}
