@@ -6,7 +6,7 @@ export const SeriesNavBar = () => {
   return (
     <div className="text-white flex">
       {seriesOptions.map(({ name, path }) => {
-        return <SubMenusNavOption name={name} path={path} />;
+        return <SubMenusNavOption key={name} name={name} path={path} />;
       })}
     </div>
   );
