@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <div
       id="header-container"
-      className="w-3/4 mx-auto px-5 h-16 flex justify-between items-center"
+      className="mx-auto h-16 flex justify-between items-center"
     >
       <button
         id="logo"
