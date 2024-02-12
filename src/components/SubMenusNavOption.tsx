@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 
 type SubMenusNavOptionProps = {
@@ -10,6 +11,7 @@ export const SubMenusNavOption: React.FC<SubMenusNavOptionProps> = ({
   path,
 }) => {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   return (
     <div className="mr-10 h-3/4 flex items-center text-2xl">
@@ -19,7 +21,7 @@ export const SubMenusNavOption: React.FC<SubMenusNavOptionProps> = ({
           pathname === path ? "active" : ""
         }  transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
       >
-        {name}
+        {t(`categories.${name}`)}
       </Link>
     </div>
   );

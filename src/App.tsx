@@ -13,6 +13,7 @@ import { TopRatedMovies } from "./pages/TopRatedMovies";
 import { TopRatedSeries } from "./pages/TopRatedSeries";
 import { UpcomingMovies } from "./pages/UpcomingMovies";
 import { getDataById } from "./services/api/api";
+import i18next from "i18next";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
         path: ":id",
         element: <ItemDetails />,
         loader: ({ params }) => {
-          return getDataById(params.id, "movie");
+          return getDataById(params.id, "movie", i18next.language);
         },
       },
     ],
@@ -85,7 +86,7 @@ const router = createBrowserRouter([
         path: ":id",
         element: <ItemDetails />,
         loader: ({ params }) => {
-          return getDataById(params.id, "tv");
+          return getDataById(params.id, "tv", i18next.language);
         },
       },
     ],

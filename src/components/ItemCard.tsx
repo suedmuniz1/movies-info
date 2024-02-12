@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./ItemCard.css";
+import { useTranslation } from "react-i18next";
 
 export type ItemTypeProps = "movie" | "tv" | undefined;
 
@@ -18,8 +19,10 @@ export const ItemCard: React.FC<ItemCardProps> = ({
   posterPath = "",
   itemType = "movie",
 }) => {
+  const { t } = useTranslation();
+
   const formatOverview = (overview: string) => {
-    if (!overview) return "No description available.";
+    if (!overview) return t("components.itemCard.noDescriptionAvailable");
 
     if (overview.length > 200) {
       return overview.substring(0, 200) + "...";
@@ -42,7 +45,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
             to={`/${itemType === "tv" ? "serie" : itemType}/${id}`}
             className="font-bold p-5 mt-5 hover:underline hover:text-cyan-600 transition ease delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
           >
-            <button>See more</button>
+            <button>{t("components.itemCard.seeMore")}</button>
           </NavLink>
         </div>
       </div>

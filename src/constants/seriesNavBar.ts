@@ -1,14 +1,14 @@
 export const seriesOptions: Record<string, string>[] = [
   {
-    name: "Popular",
+    name: "popular",
     path: "/series/popular",
   },
   {
-    name: "Top Rated",
+    name: "topRated",
     path: "/series/top-rated",
   },
   {
-    name: "On the air",
+    name: "onTheAir",
     path: "/series/on-the-air",
   },
 ];

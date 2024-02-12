@@ -1,18 +1,18 @@
 export const moviesOptions: Record<string, string>[] = [
   {
-    name: "Popular",
+    name: "popular",
     path: "/movies/popular",
   },
   {
-    name: "Upcoming",
+    name: "upcoming",
     path: "/movies/upcoming",
   },
   {
-    name: "Top Rated",
+    name: "topRated",
     path: "/movies/top-rated",
   },
   {
-    name: "Now Playing",
+    name: "nowPlaying",
     path: "/movies/now-playing",
   },
 ];
