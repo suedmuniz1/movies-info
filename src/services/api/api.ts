@@ -1,5 +1,7 @@
 import axios from "axios";
-import { API_TOKEN } from "../constants/env";
+import { API_TOKEN } from "../../constants/env";
+
+type ItemType = "movie" | "tv";
 
 type GetDataProps = {
   dataEndpoint: string;
@@ -27,31 +29,18 @@ export const getData = async (
       },
     })
     .then((response) => {
-      console.log(response.data);
       return response.data;
     });
 };
 
-export const getMovieDataById = async (id: string | undefined) => {
+export const getDataById = async (
+  id: string | undefined,
+  itemType: ItemType
+) => {
   if (!id) return;
 
   return await axios
-    .get(`https://api.themoviedb.org/3/movie/${id}`, {
-      headers: {
-        authorization: `Bearer ${API_TOKEN}`,
-        accept: "application/json",
-      },
-    })
-    .then((response) => {
-      return response.data;
-    });
-};
-
-export const getSerieDataById = async (id: string | undefined) => {
-  if (!id) return;
-
-  return await axios
-    .get(`https://api.themoviedb.org/3/tv/${id}`, {
+    .get(`https://api.themoviedb.org/3/${itemType}/${id}`, {
       headers: {
         authorization: `Bearer ${API_TOKEN}`,
         accept: "application/json",

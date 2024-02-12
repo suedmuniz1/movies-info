@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getData } from "../services/api";
+import { getData } from "../services/api/api";
 import { ItemCard, ItemTypeProps } from "./ItemCard";
 import { Pagination } from "./Pagination";
 

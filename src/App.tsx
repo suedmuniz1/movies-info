@@ -1,6 +1,8 @@
 import { Navigate, RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
 import { Footer } from "./components/Footer";
+import { ItemDetails } from "./pages/ItemDetails";
+import { ItemDetailsLayout } from "./pages/ItemDetailsLayout";
 import { MoviesLayout } from "./pages/MoviesLayout";
 import { NowPlayingMovies } from "./pages/NowPlayingMovies";
 import { OnTheAirSeries } from "./pages/OnTheAirSeries";
@@ -10,9 +12,7 @@ import { SeriesLayout } from "./pages/SeriesLayout";
 import { TopRatedMovies } from "./pages/TopRatedMovies";
 import { TopRatedSeries } from "./pages/TopRatedSeries";
 import { UpcomingMovies } from "./pages/UpcomingMovies";
-import { ItemDetails } from "./pages/ItemDetails";
-import { ItemDetailsLayout } from "./pages/ItemDetailsLayout";
-import { getMovieDataById, getSerieDataById } from "./services/api";
+import { getDataById } from "./services/api/api";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         path: ":id",
         element: <ItemDetails />,
         loader: ({ params }) => {
-          return getMovieDataById(params.id);
+          return getDataById(params.id, "movie");
         },
       },
     ],
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
         path: ":id",
         element: <ItemDetails />,
         loader: ({ params }) => {
-          return getSerieDataById(params.id);
+          return getDataById(params.id, "tv");
         },
       },
     ],
