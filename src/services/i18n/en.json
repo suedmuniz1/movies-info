@@ -1,0 +1,37 @@
+{
+    "translation": {
+        "components": {
+            "navbar": {
+                "movies": "Movies",
+                "series": "Series"
+            },
+            "itemCard": {
+                "seeMore": "See More",
+                "noDescriptionAvailable": "No Description Available."
+            },
+            "pagination": {
+                "firstPage": "First Page",
+                "previousPage": "Previous",
+                "nextPage": "Next",
+                "lastPage": "Last Page"
+            },
+            "footer": {
+                "credits": "Designed and developed by:"
+            },
+            "itemDetails": {
+                "goBack": "Go Back",
+                "overview": "Overview",
+                "genres": "Genres",
+                "releaseDate": "Release Date",
+                "firstAirDate": "First Air Date"
+            }
+        },
+        "categories": {
+            "popular": "Popular",
+            "upcoming": "Upcoming",
+            "topRated": "Top Rated",
+            "nowPlaying": "Now Playing",
+            "onTheAir": "On The Air"
+        }
+    }
+}

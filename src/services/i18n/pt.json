@@ -1,0 +1,37 @@
+{
+    "translation": {
+        "components": {
+            "navbar": {
+                "movies": "Filmes",
+                "series": "Séries"
+            },
+            "itemCard": {
+                "seeMore": "Ver mais",
+                "noDescriptionAvailable": "Nenhuma descrição disponível."
+            },
+            "pagination": {
+                "firstPage": "Primeira Página",
+                "previousPage": "Anterior",
+                "nextPage": "Próxima",
+                "lastPage": "Última Página"
+            },
+            "footer": {
+                "credits": "Projetado e desenvolvido por:"
+            },
+            "itemDetails": {
+                "goBack": "Voltar",
+                "overview": "Sinopse",
+                "genres": "Gêneros",
+                "releaseDate": "Data de lançamento",
+                "firstAirDate": "Data de estréia"
+            }
+        },
+        "categories": {
+            "popular": "Populares",
+            "upcoming": "Em breve",
+            "topRated": "Melhor avaliados",
+            "nowPlaying": "Lançados recentemente",
+            "onTheAir": "Em atividade"
+        }
+    }
+}
