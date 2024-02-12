@@ -1,13 +1,96 @@
-import { Navigate, Route, Routes } from "react-router";
+import { Navigate, RouterProvider } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+import { MoviesLayout } from "./pages/MoviesLayout";
 import { NowPlayingMovies } from "./pages/NowPlayingMovies";
 import { OnTheAirSeries } from "./pages/OnTheAirSeries";
 import { PopularMovies } from "./pages/PopularMovies";
 import { PopularSeries } from "./pages/PopularSeries";
+import { SeriesLayout } from "./pages/SeriesLayout";
 import { TopRatedMovies } from "./pages/TopRatedMovies";
 import { TopRatedSeries } from "./pages/TopRatedSeries";
 import { UpcomingMovies } from "./pages/UpcomingMovies";
+import { ItemDetails } from "./pages/ItemDetails";
+import { ItemDetailsLayout } from "./pages/ItemDetailsLayout";
+import { getMovieDataById, getSerieDataById } from "./services/api";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/movies/popular" replace />,
+    index: true,
+  },
+  {
+    path: "movies",
+    element: <MoviesLayout />,
+    children: [
+      {
+        path: ":id",
+        element: <ItemDetails />,
+      },
+      {
+        path: "popular",
+        element: <PopularMovies />,
+      },
+      {
+        path: "upcoming",
+        element: <UpcomingMovies />,
+      },
+      {
+        path: "top-rated",
+        element: <TopRatedMovies />,
+      },
+      {
+        path: "now-playing",
+        element: <NowPlayingMovies />,
+      },
+    ],
+  },
+  {
+    path: "series",
+    element: <SeriesLayout />,
+    children: [
+      {
+        path: "popular",
+        element: <PopularSeries />,
+      },
+      {
+        path: "top-rated",
+        element: <TopRatedSeries />,
+      },
+      {
+        path: "on-the-air",
+        element: <OnTheAirSeries />,
+      },
+    ],
+  },
+  {
+    path: "movie",
+    element: <ItemDetailsLayout />,
+    children: [
+      {
+        path: ":id",
+        element: <ItemDetails />,
+        loader: ({ params }) => {
+          return getMovieDataById(params.id);
+        },
+      },
+    ],
+  },
+  {
+    path: "serie",
+    element: <ItemDetailsLayout />,
+    children: [
+      {
+        path: ":id",
+        element: <ItemDetails />,
+        loader: ({ params }) => {
+          return getSerieDataById(params.id);
+        },
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
@@ -18,25 +101,13 @@ function App() {
         minHeight: "100vh",
       }}
     >
-      <div className="text-white">
-        <Header />
-      </div>
-      <div
-        className="w-3/4 mx-auto p-10 my-10 rounded-lg"
-        style={{ minHeight: "90vh" }}
-      >
-        <Routes>
-          <Route path="/">
-            <Route index element={<Navigate to="/movies/popular" replace />} />
-            <Route path="/movies/popular" element={<PopularMovies />} />
-            <Route path="/movies/upcoming" element={<UpcomingMovies />} />
-            <Route path="/movies/top-rated" element={<TopRatedMovies />} />
-            <Route path="/movies/now-playing" element={<NowPlayingMovies />} />
-            <Route path="/series/popular" element={<PopularSeries />} />
-            <Route path="/series/top-rated" element={<TopRatedSeries />} />
-            <Route path="/series/on-the-air" element={<OnTheAirSeries />} />
-          </Route>
-        </Routes>
+      <div className="w-3/4 mx-auto rounded-lg" style={{ minHeight: "90vh" }}>
+        <RouterProvider
+          router={router}
+          fallbackElement={
+            <div className="text-white w-full text-center">Loading...</div>
+          }
+        />
       </div>
       <Footer />
     </div>
