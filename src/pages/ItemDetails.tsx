@@ -5,7 +5,6 @@ import { useLoaderData, useNavigate } from "react-router";
 export const ItemDetails = () => {
   const item: any = useLoaderData();
   const navigate = useNavigate();
-  console.log("item: ", item);
 
   return (
     <div className="text-white my-10">
