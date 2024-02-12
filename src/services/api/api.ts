@@ -7,13 +7,15 @@ type GetDataProps = {
   dataEndpoint: string;
   endpointParams?: Record<string, any>;
   page?: number;
+  language?: string;
 };
 
 export const getData = async (
-  { dataEndpoint, endpointParams, page }: GetDataProps = {
+  { dataEndpoint, endpointParams, page, language }: GetDataProps = {
     dataEndpoint: "",
     endpointParams: {},
     page: 1,
+    language: "en",
   }
 ) => {
   return await axios
@@ -24,7 +26,7 @@ export const getData = async (
       },
       params: {
         page: page,
-        language: "en-US",
+        language: language === "en" ? "en-US" : "pt-BR",
         ...endpointParams,
       },
     })
@@ -35,7 +37,8 @@ export const getData = async (
 
 export const getDataById = async (
   id: string | undefined,
-  itemType: ItemType
+  itemType: ItemType,
+  language: string
 ) => {
   if (!id) return;
 
@@ -44,6 +47,9 @@ export const getDataById = async (
       headers: {
         authorization: `Bearer ${API_TOKEN}`,
         accept: "application/json",
+      },
+      params: {
+        language: language === "en" ? "en-US" : "pt-BR",
       },
     })
     .then((response) => {

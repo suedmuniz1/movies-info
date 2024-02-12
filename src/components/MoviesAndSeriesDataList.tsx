@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getData } from "../services/api/api";
 import { ItemCard, ItemTypeProps } from "./ItemCard";
 import { Pagination } from "./Pagination";
+import { useTranslation } from "react-i18next";
 
 type MoviesDataListProps = {
   // title: string;
@@ -24,11 +25,14 @@ export const MoviesAndSeriesDataList: React.FC<MoviesDataListProps> = ({
   const [totalResults, setTotalResults] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const { i18n } = useTranslation();
+
   const getMovies = async () => {
     const response = await getData({
       dataEndpoint,
       endpointParams,
       page,
+      language: i18n.language,
     });
 
     setItems(response.results);
@@ -40,7 +44,7 @@ export const MoviesAndSeriesDataList: React.FC<MoviesDataListProps> = ({
 
   useEffect(() => {
     getMovies();
-  }, [page]);
+  }, [page, i18n.language]);
 
   return (
     <div className="h-full w-full my-10 rounded-3xl bg-opacity-90">
