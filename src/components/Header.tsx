@@ -11,7 +11,7 @@ export const Header = () => {
         className="text-3xl font-bold flex justify-center items-center gap-2"
       >
         <img src="/my-movies-list-icon.png" alt="Logo" className="w-12 h-12" />
-        My movies list
+        Cinefilando
       </button>
       <Navbar />
     </div>
