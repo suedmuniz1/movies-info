@@ -9,7 +9,7 @@ type MovieCardProps = {
 
 export const MovieCard: React.FC<MovieCardProps> = ({
   title = "",
-  overview,
+  overview = "",
   posterPath = "",
 }) => {
   const formatOverview = (overview: string) => {
@@ -31,14 +31,16 @@ export const MovieCard: React.FC<MovieCardProps> = ({
       <div className="text-white p-5 overlay">
         <span className="text-3xl font-bold mb-10">{title}</span>
         <span className="text-justify">{formatOverview(overview)}</span>
-        <div className="flex justify-center">
-          <NavLink
-            to="/teste"
-            className="font-bold p-5 mt-5 hover:underline hover:text-cyan-600 transition ease delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-          >
-            <button>See more</button>
-          </NavLink>
-        </div>
+        {overview && overview.length > 200 && (
+          <div className="flex justify-center">
+            <NavLink
+              to="/teste"
+              className="font-bold p-5 mt-5 hover:underline hover:text-cyan-600 transition ease delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+            >
+              <button>See more</button>
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );
