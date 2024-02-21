@@ -12,7 +12,7 @@ type MoviesDataListProps = {
   itemType: ItemTypeProps;
 };
 
-export const MoviesAndSeriesDataList: React.FC<MoviesDataListProps> = ({
+export const DataList: React.FC<MoviesDataListProps> = ({
   // title,
   customTitleKey,
   dataEndpoint,

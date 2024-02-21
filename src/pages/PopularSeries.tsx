@@ -1,4 +1,4 @@
-import { MoviesAndSeriesDataList } from "../components/MoviesAndSeriesDataList";
+import { MoviesAndSeriesDataList } from "../components/DataList";
 
 export const PopularSeries = () => {
   return (
