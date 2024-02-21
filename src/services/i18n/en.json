@@ -23,7 +23,10 @@
                 "overview": "Overview",
                 "genres": "Genres",
                 "releaseDate": "Release Date",
-                "firstAirDate": "First Air Date"
+                "firstAirDate": "First Air Date",
+                "whereToWatch": "Where To Watch",
+                "noOptionsAvailable": "No Options Available.",
+                "noDescriptionAvailable": "No Description Available."
             }
         },
         "categories": {

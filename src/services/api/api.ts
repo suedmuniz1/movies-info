@@ -1,7 +1,7 @@
 import axios from "axios";
 import { API_TOKEN } from "../../constants/env";
 
-type ItemType = "movie" | "tv";
+export type ItemType = "movie" | "tv";
 
 type GetDataProps = {
   dataEndpoint: string;
@@ -55,4 +55,29 @@ export const getDataById = async (
     .then((response) => {
       return response.data;
     });
+};
+
+export const getWatchProvidersByMovieId = async (
+  id: string | undefined,
+  itemType: ItemType,
+  language: string
+) => {
+  if (!id) return;
+
+  const getCountryCode = (language: string) => {
+    return language === "en" ? "US" : "BR";
+  };
+
+  const results: Record<string, any> = await axios
+    .get(`https://api.themoviedb.org/3/${itemType}/${id}/watch/providers`, {
+      headers: {
+        authorization: `Bearer ${API_TOKEN}`,
+        accept: "application/json",
+      },
+    })
+    .then((response) => {
+      return response?.data?.results[getCountryCode(language)]?.flatrate ?? [];
+    });
+
+  return results;
 };

@@ -23,7 +23,10 @@
                 "overview": "Sinopse",
                 "genres": "Gêneros",
                 "releaseDate": "Data de lançamento",
-                "firstAirDate": "Data de estréia"
+                "firstAirDate": "Data de estréia",
+                "whereToWatch": "Onde assistir",
+                "noOptionsAvailable": "Nenhuma opção disponível.",
+                "noDescriptionAvailable": "Nenhuma descrição disponível."
             }
         },
         "categories": {
