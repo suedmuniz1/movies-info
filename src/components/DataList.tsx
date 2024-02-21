@@ -4,7 +4,7 @@ import { ItemCard, ItemTypeProps } from "./ItemCard";
 import { Pagination } from "./Pagination";
 import { useTranslation } from "react-i18next";
 
-type MoviesDataListProps = {
+type DataListProps = {
   // title: string;
   customTitleKey?: string;
   dataEndpoint: string;
@@ -12,7 +12,7 @@ type MoviesDataListProps = {
   itemType: ItemTypeProps;
 };
 
-export const DataList: React.FC<MoviesDataListProps> = ({
+export const DataList: React.FC<DataListProps> = ({
   // title,
   customTitleKey,
   dataEndpoint,
@@ -20,7 +20,7 @@ export const DataList: React.FC<MoviesDataListProps> = ({
   itemType,
 }) => {
   const [items, setItems] = useState<Record<string, any>[]>([]);
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<number>(localStorage.getItem("currentPage") ? Number(localStorage.getItem("currentPage")) : 1);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [totalResults, setTotalResults] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -28,6 +28,8 @@ export const DataList: React.FC<MoviesDataListProps> = ({
   const { i18n } = useTranslation();
 
   const getMovies = async () => {
+    localStorage.setItem("currentPage", String(page));
+
     const response = await getData({
       dataEndpoint,
       endpointParams,

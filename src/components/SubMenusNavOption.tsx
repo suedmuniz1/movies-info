@@ -16,10 +16,10 @@ export const SubMenusNavOption: React.FC<SubMenusNavOptionProps> = ({
   return (
     <div className="mr-10 h-3/4 flex items-center text-2xl">
       <Link
+        onClick={() => localStorage.setItem("currentPage", "1")}
         to={path}
-        className={`${
-          pathname === path ? "active" : ""
-        }  transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
+        className={`${pathname === path ? "active" : ""
+          }  transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
       >
         {t(`categories.${name}`)}
       </Link>
