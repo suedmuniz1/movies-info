@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { HiOutlineArrowLeft } from "react-icons/hi";
