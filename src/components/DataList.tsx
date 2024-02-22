@@ -58,7 +58,7 @@ export const DataList: React.FC<DataListProps> = ({
         <>
           <div>
             {items && items.length > 0 && (
-              <div className="grid grid-rows-5 grid-cols-4 grid-flow-row gap-4 my-10">
+              <div className="grid grid-rows-1 grid-cols-1 grid-flow-row gap-4 my-10 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-3 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4">
                 {items.map((Item: any) => {
                   return (
                     <ItemCard

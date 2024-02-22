@@ -14,7 +14,7 @@ export const SubMenusNavOption: React.FC<SubMenusNavOptionProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className="mr-10 h-3/4 flex items-center text-2xl">
+    <div className="mr-10 h-3/4 flex items-center md:text-xl">
       <Link
         onClick={() => localStorage.setItem("currentPage", "1")}
         to={path}

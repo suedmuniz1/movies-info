@@ -41,7 +41,7 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ itemType = "movie" }) 
 
   return (
     <div className="text-white my-10">
-      <Button className="p-2" onClick={() => navigate(-1)}>
+      <Button className="p-2 mx-auto mb-2 md:mx-0" onClick={() => navigate(-1)}>
         <HiOutlineArrowLeft className="mr-2 h-5 w-5" />
         {t("components.itemDetails.goBack")}
       </Button>
@@ -68,19 +68,17 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ itemType = "movie" }) 
 
         <div className="mb-10">
           <strong>{t("components.itemDetails.whereToWatch")}: </strong>
-          <div className="flex items-center gap-10 mt-5">
+          <div className="flex flex-wrap items-center gap-10 mt-5">
             {watchProviders && watchProviders.length > 0 ? (
               watchProviders?.map(({ provider_name, logo_path }: any) => {
                 return (
-                  <Tooltip content={provider_name} animation="duration-500" arrow={false}>
-                    <img
-                      key={logo_path}
-                      src={`https://image.tmdb.org/t/p/w300${logo_path}`}
-                      alt={provider_name}
-                      className="w-20 h-20 rounded-full"
-                      data-tooltip-target="tooltip-default"
-                    />
-                  </Tooltip>
+                  <img
+                    key={logo_path}
+                    src={`https://image.tmdb.org/t/p/w300${logo_path}`}
+                    alt={provider_name}
+                    className="w-20 h-20 rounded-full"
+                    data-tooltip-target="tooltip-default"
+                  />
                 );
               })
             ) : (

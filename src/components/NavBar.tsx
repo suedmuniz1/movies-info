@@ -11,24 +11,24 @@ export const Navbar = () => {
   return (
     <div
       id="nav-items"
-      className="text-lg h-full flex items-center justify-center"
+      className="text-md md:text-lg h-full flex items-center justify-center"
     >
-      <div className="ml-20 h-3/4 flex items-center nav-button">
+      <div className="md:ml-20 h-3/4 flex items-center nav-button">
         <Link
+          onClick={() => localStorage.setItem("currentPage", "1")}
           to="/movies/popular"
-          className={`${
-            pathname.includes("movies") ? "active" : ""
-          }  transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
+          className={`${pathname.includes("movies") ? "active" : ""
+            }  transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
         >
           {t("components.navbar.movies")}
         </Link>
       </div>
       <div className="ml-10 h-3/4 flex items-center border-cyan-950 nav-button">
         <Link
+          onClick={() => localStorage.setItem("currentPage", "1")}
           to="/series/popular"
-          className={`${
-            pathname.includes("series") ? "active" : ""
-          } transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
+          className={`${pathname.includes("series") ? "active" : ""
+            } transition ease duration-300 hover:text-cyan-600 delay-150 hover:-translate-y-1`}
         >
           {t("components.navbar.series")}
         </Link>
