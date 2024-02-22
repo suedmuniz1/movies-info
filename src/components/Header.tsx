@@ -8,9 +8,9 @@ export const Header = () => {
     >
       <button
         id="logo"
-        className="text-3xl font-bold flex justify-center items-center gap-2 sm:text-red-500 md:text-yellow-500 lg:text-green-500"
+        className="text-3xl font-bold flex justify-center items-center gap-2 text-sm md:text-lg lg:text-xl"
       >
-        <img src="/my-movies-list-icon.png" alt="Logo" className="w-12 h-12" />
+        <img src="/my-movies-list-icon.png" alt="Logo" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
         Cinefilando
       </button>
       <Navbar />
